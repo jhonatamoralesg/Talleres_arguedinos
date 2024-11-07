@@ -56,7 +56,7 @@ const coursesByCategory = {
             description: "Descubre el chef que llevas dentro ! En este taller  aprenderás a preparar platillos deliciosos, sencillos y llenos  de sabor  que sorprenderán a tu familia.",
             icon: "camera",
             image: "img/cocina.jpeg",
-            price: "consultar
+            price: "consultar"
         },
         {
             title: "Arte Creativo",
