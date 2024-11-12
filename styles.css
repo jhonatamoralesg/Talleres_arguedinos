@@ -1,0 +1,481 @@
+/* Agregar estilos para los filtros de categoría */
+.category-filters {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+/* Actualizar transiciones de fondo */
+body {
+    transition: background-color 0.5s ease;
+}
+
+/* Resto de los estilos permanecen igual */
+:root {
+    --cyan-500: #06b6d4;
+    --purple-500: #a855f7;
+    --pink-500: #ec4899;
+    --blue-600: #2563eb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #030712;
+    color: white;
+    min-height: 100vh;
+}
+
+/* Loader Styles */
+.loader-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+
+.loader-icon {
+    width: 96px;
+    height: 96px;
+    color: var(--cyan-500);
+    margin-bottom: 2rem;
+    animation: bounce 1s infinite;
+}
+
+.spinner-container {
+    position: relative;
+    width: 192px;
+    height: 192px;
+}
+
+.spinner-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 8px solid;
+    border-top-color: var(--cyan-500);
+    border-right-color: var(--purple-500);
+    border-bottom-color: var(--pink-500);
+    border-left-color: var(--blue-600);
+    border-radius: 50%;
+    animation: spin 1.5s linear infinite;
+    filter: blur(2px);
+}
+
+.spinner-middle {
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    top: 12.5%;
+    left: 12.5%;
+    border: 8px solid transparent;
+    border-left-color: var(--cyan-500);
+    border-radius: 50%;
+    animation: spin 3s linear infinite;
+}
+
+.spinner-inner {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    top: 25%;
+    left: 25%;
+    border: 4px solid transparent;
+    border-top-color: var(--purple-500);
+    border-radius: 50%;
+    animation: spin-reverse 2s linear infinite;
+}
+
+.progress-container {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 96px;
+    height: 96px;
+    background-color: black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progress-text {
+    color: var(--cyan-500);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.loading-text {
+    margin-top: 2rem;
+    font-size: 1.875rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--cyan-500), var(--purple-500), var(--pink-500));
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: pulse 2s infinite;
+}
+
+.tech-text {
+    margin-top: 1rem;
+    color: var(--cyan-500);
+    font-family: monospace;
+    animation: pulse 2s infinite;
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #1f2937;
+    z-index: 50;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--cyan-500);
+}
+
+.nav-brand span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--cyan-500), var(--blue-600));
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.nav-links {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.nav-links a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan-500);
+}
+
+/* Content Styles */
+.content {
+    min-height: 100vh;
+}
+
+.content.hidden {
+    display: none;
+}
+
+main {
+    padding: 5rem 1rem 3rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    font-size: 2.25rem;
+    font-weight: bold;
+    background: linear-gradient(to right, var(--cyan-500), var(--purple-500), var(--pink-500));
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+}
+
+.header p {
+    color: #9ca3af;
+    font-size: 1.25rem;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .courses-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.course-card {
+    background-color: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+}
+
+.course-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.course-image {
+    position: relative;
+    height: 12rem;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.course-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(17, 24, 39, 0.9);
+    padding: 0.5rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px);
+}
+
+.course-content {
+    padding: 1.5rem;
+}
+
+.course-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.course-description {
+    color: #9ca3af;
+    margin-bottom: 1rem;
+}
+
+.course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.course-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cyan-500);
+}
+
+.enroll-button {
+    background: linear-gradient(to right, var(--cyan-500), var(--blue-600));
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.enroll-consultas {
+    background: linear-gradient(to right, var(--cyan-500), var(--blue-600));
+    color: black;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.enroll-button:hover {
+    background: linear-gradient(to right, #0891b2, #1d4ed8);
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.5);
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+/* Estilos para el contenedor de filtros de categorías */
+.category-filters {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Estilos para los botones de categoría */
+.category-btn {
+    background-color: #4B5563; /* Color de fondo por defecto */
+    color: #D1D5DB; /* Color de texto por defecto */
+    border: none;
+    border-radius: 9999px; /* Bordes redondeados */
+    padding: 0.75rem 1.5rem; /* Espaciado interno */
+    font-weight: bold;
+    font-size: 1rem; /* Tamaño de fuente */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+    margin: 0.5rem; /* Espaciado entre botones */
+}
+
+/* Estilo del botón seleccionado */
+.category-btn.selected {
+    background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+    color: white; /* Texto en blanco para el botón seleccionado */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra */
+    transform: scale(1.05); /* Escala ligeramente al seleccionar */
+}
+
+/* Efecto hover para los botones */
+.category-btn:hover {
+    background-color: #374151; /* Color de fondo al pasar el mouse */
+    transform: scale(1.02); /* Efecto de escalado al pasar el mouse */
+}
+
+/* Estilo de la clase de fondo para las categorías */
+body.bg-gray-950 {
+    background-color: #1F2937; /* Color de fondo para la categoría tecnología */
+}
+
+body.bg-purple-950 {
+    background-color: #4B5563; /* Color de fondo para la categoría arte */
+}
+
+body.bg-yellow-950{
+
+    background-color: yellow;
+}
+
+body.bg-green-950 {
+    background-color: #064E3B; /* Color de fondo para la categoría deportes */
+}
+.footer {
+    background-color: #1F2937; /* Color de fondo del footer */
+    color: #D1D5DB; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centrar texto */
+    position: relative; /* Posición relativa para el footer */
+    bottom: 0; /* Alinear al fondo */
+    width: 100%; /* Ancho completo */
+}
+
+.footer-content {
+    max-width: 800px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenido */
+}
+
+.footer p {
+    margin: 5px 0; /* Espaciado entre párrafos */
+}
+
+.social-icons {
+    margin-top: 10px; /* Espaciado arriba de los íconos */
+}
+
+.icon {
+    margin: 0 10px; /* Espaciado entre íconos */
+    font-size: 24px; /* Tamaño del ícono */
+    color: #D1D5DB; /* Color de los íconos */
+    transition: color 0.3s ease; /* Transición suave para color */
+}
+
+.icon:hover {
+    color: #3B82F6; /* Color al pasar el mouse */
+}
+
+.hidden {
+    display: none; /* Esto oculta el modal por defecto */
+}
+
+#courseModal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+}
+/* Contenedor responsivo para el video */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 70%;
+    background-color: black; /* Fondo mientras carga */
+    border-radius: 8px; /* Borde redondeado */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+   
+}
+
+/* Estilos para el iframe de video */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+    border: none; /* Sin borde */
+}

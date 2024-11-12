@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talleres Tecnológicos Arguedinos</title>
+    <link rel="stylesheet" href="styles.css">
+  
+  
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="loader" class="loader-container">
+        <i data-lucide="graduation-cap" class="loader-icon"></i>
+        <div class="spinner-container">
+            <div class="spinner-outer"></div>
+            <div class="spinner-middle"></div>
+            <div class="spinner-inner"></div>
+            <div class="progress-container">
+                <span id="progress-text">0%</span>
+            </div>
+        </div>
+        <h2 class="loading-text">Cargando Cursos...</h2>
+        <p class="tech-text">&#x3C; Innovación Tecnológica /&#x3E;</p>
+    </div>
+
+    <div id="content" class="content hidden">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <i data-lucide="graduation-cap"></i>
+                    <span>Arguedas</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#cursos">Cursos</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <div class="header">
+                <h1>Arguedinos Formación Total</h1>
+                <p>Descubre el futuro de la tecnología con nuestros cursos especializados</p>
+            </div>
+            <div class="courses-grid" id="courses-container">
+                <!-- Courses will be inserted here by JavaScript -->
+            </div>
+        </main>
+    </div>
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Desarrollado por <strong>Jhonatan Morales Galvez</strong></p>
+            <p>Dirección: <strong>Jr. Palcamarca 293, Payet</strong></p>
+            <div class="social-icons">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="facebook" class="icon"></i>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
+                    <i data-lucide="tiktok" class="icon"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+    
+</body>
+</html>
